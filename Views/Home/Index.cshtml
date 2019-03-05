@@ -1,0 +1,63 @@
+@{
+    string message = (string)TempData["message"];
+    string[] gameTypes = new string[] { "Feed", "Play", "Work", "Sleep" };
+    bool restart = false;
+    if(Model.didLose)
+    {
+        message = "You Dojodachi has passed away";
+        restart = true;
+    }
+    else if(Model.didWin)
+    {
+        message = "Congradulations, You Won!";
+        restart = true;
+    }
+}
+
+@model Dachi
+
+<div class="container">
+    <h1>Dojodachi Game</h1>
+    <div class="status">
+        <h4>Fullness: @Model.Fullness</h4>
+        <h4>Happiness: @Model.Happiness</h4>
+        <h4>Meal: @Model.Meals</h4>
+        <h4>Energy: @Model.Energy</h4>
+    </div>
+    <div class="dojodachi">
+        @{
+            if(Model.didWin)
+            {
+                <p class="didWin"></p>
+            }
+            else if(Model.didLose)
+            {
+                <p class="didLose"></p>
+            }
+            else if (@Model.Fullness <= 15 || @Model.Happiness <= 15 || @Model.Energy <= 15)
+            {
+                <p class="losing"></p>
+            }
+            else 
+            {
+                <p class="default"></p>
+            }
+        }
+        <p>@message</p>
+    </div>
+    <div class="gametype">
+        @{
+            if(!restart)
+            {
+                foreach(string gt in gameTypes)
+                {
+                    <a class="@gt" asp-action="Play" asp-controller="Home" asp-route-gameType="@gt.ToLower()"><button>@gt</button></a>
+                }
+            }
+            else
+            {
+                <a class="restart" asp-action="Restart" asp-controller="Home"><button>Restart?</button></a>
+            }
+        }
+    </div>
+</div>

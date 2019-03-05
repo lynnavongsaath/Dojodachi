@@ -1,0 +1,72 @@
+body{
+    background-color: bisque;
+}
+div {
+    text-align: center;
+    margin: 10px auto;
+    font-family:fantasy;
+}
+.status h4 {
+    display: inline;
+    font-size:17px;
+    padding: 10px;
+}
+.dojodachi p:first-of-type {
+    margin: auto;
+    border: solid 5px black;
+}
+.dojodachi p.default{
+    background-image: url('../images/dojodachi.jpg');
+    background-position: -200px -415px;
+    background-repeat: no-repeat;
+    width:175px;
+    height:150px;
+    position:relative;
+}
+.dojodachi p.didLose{
+    background-image: url('../images/dojodachi.jpg');
+    background-position: -6px -405px;
+    background-repeat: no-repeat;
+    width:175px;
+    height:150px;
+    position:relative;
+}
+.dojodachi p.didWin{
+    background-image: url('../images/dojodachi.jpg');
+    background-position: -200px -600px;
+    background-repeat: no-repeat;
+    width:175px;
+    height:150px;
+    position:relative;
+}
+.dojodachi p.losing{
+    background-image: url('../images/dojodachi.jpg');
+    background-position: -200px -33px;
+    background-repeat: no-repeat;
+    width:175px;
+    height:150px;
+    position:relative;
+}
+.gametype a button{
+    width: 80px;
+    height: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+}
+.gametype a.Feed button{
+    background-color: rgb(226, 126, 11);
+}
+.gametype a.Play button{
+    background-color: #458610;
+}
+.gametype a.Work button{
+    background-color: #791103;
+}
+.gametype a.Sleep button{
+    background-color: #592464;
+}
+.gametype a.restart button{
+    background-color: rgb(77, 76, 76);
+}
